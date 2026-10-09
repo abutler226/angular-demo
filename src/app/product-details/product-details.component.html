@@ -9,8 +9,9 @@
         </div>
     </div>
     <div class="price">
+        <p [ngClass]="{'strikethrough': product().discount>0 }" style="display: none;">{{product().price|currency}}</p>
         <p [class.strikethrough]="product().discount>0">{{product().price|currency}}</p>
-
+ 
         @if (product().discount>0){
         <p class="discount">{{product().price * (1-product().discount) | currency}}</p>
         }

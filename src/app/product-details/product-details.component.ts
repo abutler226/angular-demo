@@ -1,10 +1,10 @@
 import { Component, signal, input } from '@angular/core';
 import { IProduct } from './product.model';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, NgClass } from '@angular/common';
 
 @Component({
   selector: 'ab-product-details',
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, NgClass],
   styleUrl: './product-details.component.css',
   templateUrl: './product-details.component.html',
 })
