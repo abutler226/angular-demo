@@ -9,11 +9,12 @@
         </div>
     </div>
     <div class="price">
+        <p [class.strikethrough]="product().discount>0">{{product().price|currency}}</p>
+
         @if (product().discount>0){
-        <p class="discount">{{product().price * (1-product().discount) | currency}} (Sale)</p>
-        }@else{
-        <p>{{product().price|currency}}</p>
+        <p class="discount">{{product().price * (1-product().discount) | currency}}</p>
         }
+
         <button [disabled]="isButtonDisabled()" class="cta" (click)="addToCart(product(), $event)">Buy</button>
     </div>
 </div>
