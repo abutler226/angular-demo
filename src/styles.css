@@ -121,6 +121,7 @@ input {
 button.cta:disabled {
   background-color: #f590c4;
   color: #eee;
+  cursor: not-allowed;
 }
 
 div.info-banner{
