@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { ProductDetailsComponent } from '../product-details/product-details.component';
 
 @Component({
   selector: 'ab-catalog',
-  standalone: true,
   styleUrl: './catalog.component.css',
   templateUrl: './catalog.component.html',
+  imports: [ProductDetailsComponent]
 })
 export class CatalogComponent {}

@@ -2,28 +2,3 @@ ul {
   margin: 0 100px;
 }
 
-li {
-  border-top: 1px solid #999;
-  border-bottom: 1px solid #999;
-  padding: 10px;
-}
-
-li div {
-  padding: 0 15px;
-}
-
-.product {
-  display: flex;
-  justify-content: space-between;
-}
-
-img {
-  height: 100px;
-  align-items: flex-start;
-  padding: 10px 0;
-}
-
-.price {
-  border-left: 1px solid #999;
-  text-align: center;
-}
