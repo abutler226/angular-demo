@@ -61,3 +61,7 @@ div {
   text-decoration: line-through;
   font-size: 18px;
 }
+
+.full-price {
+  font-weight: bold;
+}
