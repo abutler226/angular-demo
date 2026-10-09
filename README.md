@@ -2,7 +2,16 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8, but was based on a demo for Angular 19.  This required some small changes:
 
-- imports were moved to the app-module.ts @NgModule alias.  This also required a "standalone: true" property in the individual @Component alias declaration on each component.
+- This was created as a standalone:false app by default.  The tutorial, and best practice from 17+ is to use standalone components/imports, so I used the following terminal cmd:
+
+```bash
+ng generate @angular/core:standalon
+```
+
+This was executed 3 times: 
+1. Convert all components, directives and pipes to standalone
+2. Remove unnecessary NgModule classes
+3. Bootstrap the application using standalone APIs
 
 ## Development server
 
