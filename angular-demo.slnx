@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="angular-demo.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>
