@@ -1,6 +1,8 @@
 # AngularDemo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8, but was based on a demo for Angular 19.  This required some small changes:
+
+- imports were moved to the app-module.ts @NgModule alias.  This also required a "standalone: true" property in the individual @Component alias declaration on each component.
 
 ## Development server
 
