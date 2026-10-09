@@ -1,10 +1,9 @@
 <ul>
+    @for (product of products; track product.id){
     <li>
-        <ab-product-details [product]="products[0]"/>
+        <ab-product-details [product]="product" />
     </li>
-    <li>
-        <ab-product-details [product]="products[1]"/>
-    </li>
+    }
 </ul>
 
 <div class="info">

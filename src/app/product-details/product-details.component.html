@@ -9,7 +9,11 @@
         </div>
     </div>
     <div class="price">
+        @if (product().discount>0){
+        <p class="discount">{{product().price * (1-product().discount) | currency}} (Sale)</p>
+        }@else{
         <p>{{product().price|currency}}</p>
+        }
         <button [disabled]="isButtonDisabled()" class="cta" (click)="addToCart(product(), $event)">Buy</button>
     </div>
 </div>
