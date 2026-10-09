@@ -32,7 +32,11 @@ export class ProductDetailsComponent {
 
     if (this.availableInventory() == 0)
       this.isButtonDisabled.set(true);
-    
+
     console.log(this.availableInventory());
+  }
+
+  getPriceClasses() {
+    return { 'strikethrough': this.product().discount > 0, 'full-price': this.product().discount == 0 };
   }
 }
