@@ -118,9 +118,9 @@ input {
   font-size: 20px;
 }
 
-.button.cta:disabled {
+button.cta:disabled {
   background-color: #f590c4;
-  color: #aaa;
+  color: #eee;
 }
 
 div.info-banner{

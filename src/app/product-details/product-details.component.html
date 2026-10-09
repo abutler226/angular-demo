@@ -2,14 +2,15 @@
     <img [src]="getImageURL()" [alt]="product.name" [title]="product.name" />
     <div class="details">
         <div>
-            <h2>{{product.name}}</h2>
-            <p>{{product.description}} {{product.message}}</p>
+            <h2>{{product.name}} {{product.message}}</h2>
+            <p>{{product.description}}</p>
             <p>Part Type: {{product.category}} </p>
+            <p>Inventory: {{availableInventory()}} </p>
         </div>
     </div>
     <div class="price">
         <p>{{product.price|currency}}</p>
-        <button class="cta" (click)="addToCart(product, $event)">Buy</button>
+        <button [disabled]="isButtonDisabled()" class="cta" (click)="addToCart(product, $event)">Buy</button>
     </div>
 </div>
 
