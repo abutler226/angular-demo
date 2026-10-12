@@ -40,11 +40,11 @@
   padding: 3px;
   text-align: left;
   grid-column: 1 / 2;
+  font-weight: bold;
 }
 
 .cellRight {
   color: #6A5449;
-  font-weight: bold;
   padding: 3px;
   text-align: left;
   grid-column: 2 / 3;

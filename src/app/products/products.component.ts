@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, effect } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import allProducts from '../products.json'
 import { IProduct } from '../product-details/product.model';
@@ -22,17 +22,23 @@ export class ProductsComponent {
   getSelectedProduct() {
     console.log(this.selectedProduct()?.name);
   }
-  onProductChange(event: Event) {
-    //this direct updating should not be needed, but selectedProduct() is not updated with just the ngModel binding on <select>
-    const target = event.target as HTMLSelectElement;
-    const found = this.products().find(u => u.name === target.value);
-    this.selectedProduct.set(found);
+  getQuantity() {
+    console.log(this.quantity());
   }
+  // onProductChange(event: Event) {
+  //   //this direct updating should not be needed, but selectedProduct() is not updated with just the ngModel binding on <select>
+  //   const target = event.target as HTMLSelectElement;
+  //   const targetProduct = target.value;
+  //   const found = this.products().find(u => u.name === targetProduct);
+  //   this.selectedProduct.set(found);
+  // }
   onDecrease() {
     this.quantity.update(q => q <= 0 ? 0 : q - 1);
   }
   onIncrease() {
     this.quantity.update(q => q + 1);
   }
+
+  qtyEffect = effect(() => console.log('quantity: ', this.quantity()));
 }
 

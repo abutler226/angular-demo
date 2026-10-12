@@ -4,7 +4,8 @@
 <h1>{{pageTitle}}</h1>
 
 <div class="content">
-    <select [(ngModel)]="selectedProduct" (change)="onProductChange($event)">
+
+    <select id="productSelectList" [(ngModel)]="selectedProduct">
         <option value="undefined" selected>--Select a product--</option>
         @for(product of products(); track product.id) {
         <option [ngValue]="product">{{product.name}}</option>
@@ -38,8 +39,11 @@
         </div>
     </div>
 
-    <div style="display: none;">
+    <div>
         <button (click)="setSelectedProduct()">Set Selected Product</button>
+        |
         <button (click)="getSelectedProduct()">Get Selected Product</button>
+        |
+        <button (click)="getQuantity()">Get Quantity</button>
     </div>
 </div>
