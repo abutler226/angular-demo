@@ -22,5 +22,17 @@ export class ProductsComponent {
   getSelectedProduct() {
     console.log(this.selectedProduct()?.name);
   }
+  onProductChange(event: Event) {
+    //this direct updating should not be needed, but selectedProduct() is not updated with just the ngModel binding on <select>
+    const target = event.target as HTMLSelectElement;
+    const found = this.products().find(u => u.name === target.value);
+    this.selectedProduct.set(found);
+  }
+  onDecrease() {
+    this.quantity.update(q => q <= 0 ? 0 : q - 1);
+  }
+  onIncrease() {
+    this.quantity.update(q => q + 1);
+  }
 }
 
