@@ -1,0 +1,26 @@
+<div class="product">
+    <img [src]="getImageURL(product())" [alt]="product().name" [title]="product().name" />
+    <div class="details">
+        <div>
+            <h2>{{product().name}}</h2>
+            <p>{{product().description}}</p>
+            <p>Part Type: {{product().category}} </p>
+        </div>
+    </div>
+    <div class="price">
+        <p [ngClass]="getPriceClasses()">{{product().price|currency}}</p>
+        <p [class.strikethrough]="product().discount>0" style="display: none;">{{product().price|currency}}</p>
+ 
+        @if (product().discount>0){
+        <p class="discount">{{product().price * (1-product().discount) | currency}}</p>
+        }
+
+        <button class="cta" (click)="removeFromCart()">Remove</button>
+    </div>
+</div>
+
+
+
+<div class="info">
+    <b>To create:</b> ng generate component cart-item --type=component
+</div>

@@ -1,0 +1,67 @@
+:host li {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 25px;
+  border-bottom: 1px solid #999;
+  width: 100%;
+}
+
+:host img {
+  height: 125px;
+  margin-right: 25px;
+}
+
+div {
+  padding: 15px;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0 15px;
+  padding: 0;
+}
+
+.details div {
+  padding: 0;
+}
+
+.product {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.price {
+  font-size: 25px;
+  border-left: 1px solid #aaa;
+  padding-left: 10px;
+  text-align: center;
+  min-width: 190px;
+}
+
+.price p {
+  margin: 0;
+}
+
+.price button {
+  padding: 10px;
+  width: 100px;
+  display: block;
+  margin: 10px auto;
+}
+
+.discount {
+  margin-top: -15px;
+  color: #d25ca1;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  font-size: 18px;
+}
+
+.full-price {
+  font-weight: bold;
+}
