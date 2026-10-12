@@ -4,12 +4,16 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SignalsComponent } from './signals/signals.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
-  //{ path: '', component: CatalogComponent },
+  //{ path: '', component: CatalogComponent },//allows root access with default view
   { path: '', redirectTo: 'catalog', pathMatch: 'full' }, //redirects to catalog page, no root access
   { path: 'catalog', component: CatalogComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'signals', component: SignalsComponent },
+  { path: 'products', component: ProductsComponent },
 
   { path: '**', component: PageNotFoundComponent }
 ];

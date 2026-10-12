@@ -1,0 +1,47 @@
+<div class="info-banner">PluralSight: <a href="https://app.pluralsight.com/ilx/video-courses/angular-signals/"
+        target="_blank">Angular Signals</a></div>
+
+<br />
+<br />
+
+<div class="inputs">
+    <div>
+        <b>Static Variables:</b>
+        <br />
+        <label>Static x:</label> <input (input)="updateValueX($event)" type="number" value="{{xStatic}}" />
+        <br />
+        <label>Static y:</label> <input type="number" value="{{yStatic}}" />
+    </div>
+
+    <div>
+        <b>Signal Variables:</b>
+        <br />
+        <label>Signal x:</label> <input type="text" value="{{x()}}" />
+        <br />
+        <label>Signal y:</label> <input type="text" value="{{y()}}" />
+    </div>
+</div>
+
+<div class="example">
+    <h2>Static Example:</h2>
+    <pre>
+    x = {{xStatic}};
+    y = {{yStatic}};
+    z = x + y;</pre>
+    <Output><b>z:</b> <label [class.hide]="ex1 == ''">{{zStatic}}</label></Output>
+    <button (click)="runExample1()" title="one-time calculation">Calculate</button>
+    <button (click)="logStaticValues()">Log Static Values</button>
+</div>
+
+<div class="example">
+    <h2>Signal Example:</h2>
+    <pre>
+    x = {{x()}};
+    y = {{y()}};
+    z = x + y;</pre>
+    <Output><b>z:</b> <label [class.hide]="ex1 == ''">{{z}}</label></Output>
+    <button (click)="runExample1()">Calculate</button>
+    <button (click)="logSignalValues()">Log Signal Values</button>
+</div>
+
+        

@@ -1,0 +1,53 @@
+:host h2 {
+    font-size: 14px;
+}
+
+.inputs {
+    width: 100%;
+    border-bottom: 2px dotted #d25ca1;
+    padding: 10px ;
+}
+
+.inputs div {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+pre,
+output {
+    border: 2px solid gray;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px;
+    width: 25%;
+}
+
+output {
+    background-color: aquamarine;
+    padding: 15px;
+}
+
+div.example {
+    border-bottom: 2px solid #eee;
+    display: flex;
+    padding: 15px;
+}
+
+.hide {
+    display: none;
+}
+
+button {
+    padding: 10px;
+    display: block;
+    margin: auto;
+    background-color: #d25ca1;
+}
+
+button:hover {
+    color: rgb(239, 236, 236);
+}
+
+input[type=text],input[type=number]{
+    padding: 5px;
+}

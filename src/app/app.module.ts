@@ -7,9 +7,10 @@ import { CartComponent } from './cart/cart.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SiteHeaderComponent } from './site-header/site-header.component';
 import { SignalsComponent } from './signals/signals.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   imports: [App, RouterModule, CatalogComponent, CartComponent, SiteHeaderComponent],
-  declarations: [PageNotFoundComponent, SignalsComponent],
+  declarations: [PageNotFoundComponent, SignalsComponent, ProductsComponent],
 })
 export class AppModule {}

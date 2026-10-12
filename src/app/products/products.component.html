@@ -1,0 +1,46 @@
+<div class="info-banner">PluralSight: <a href="https://app.pluralsight.com/ilx/video-courses/angular-signals/"
+        target="_blank">Angular Signals</a></div>
+
+<h1>{{pageTitle}}</h1>
+
+<div class="content">
+          <select [(ngModel)]="selectedProduct">
+            <option value="undefined" selected>--Select a product--</option>
+            @for(product of products(); track product.id) {
+              <option [ngValue]="product">{{product.name}}</option>
+            }
+          </select>
+          <select [ngModel]="selectedProduct">
+            <option value="undefined" selected>--Select a product--</option>
+            @for(product of products(); track product.id) {
+              <option [ngValue]="product">{{product.name}}</option>
+            }
+          </select>
+          <select [ngModel]="selectedProduct()">
+            <option value="undefined" selected>--Select a product--</option>
+            @for(product of products(); track product.id) {
+              <option [ngValue]="product">{{product.name}}</option>
+            }
+          </select>
+
+    <div class="grid">
+        <div class="row">
+            <div class="cellLeft">Name:</div>
+            <div class="cellRight">{{selectedProduct()?.name}}</div>
+        </div>
+        <div class="row">
+            <div class="cellLeft">Description:</div>
+            <div class="cellRight">{{selectedProduct()?.description}}</div>
+        </div>
+        <div class="row">
+            <div class="cellLeft">Price:</div>
+            <div class="cellRight">{{selectedProduct()?.price}}</div>
+        </div>
+        <div class="row">
+            <div class="cellLeft"><label for="quantity">Quantity:</label></div>
+            <div class="cellRight"><input class="quantityInput" id="quantity" type="number" [(ngModel)]="quantity" value="{{quantity()}}" /></div>
+        </div>
+    </div>
+    <button (click)="setSelectedProduct()">Set Selected Product</button>
+    <button (click)="getSelectedProduct()">Get Selected Product</button>
+</div>
