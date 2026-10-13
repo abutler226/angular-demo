@@ -1,0 +1,68 @@
+div {
+    display: flex;
+}
+
+a {
+    color: #d25ca1;
+}
+
+fieldset{
+    border: 1px dotted gray;
+    background-color: #eee;
+    font-style: italic;
+}
+
+.intro {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.bio,
+.nav {
+    display: inline;
+    width: 50%;
+}
+
+.nav>div {
+    padding: 15px;
+}
+
+.nav ul {
+    text-align: left;
+}
+
+.nav li {
+    padding: 3px 10px;
+}
+
+.bio {
+    margin: 0 15px;
+    padding: 0;
+}
+
+.bio div {
+    display: inline;
+    padding: 0;
+}
+
+.nav {
+    border-left: 1px solid #aaa;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.nav p {
+    margin: 0;
+}
+
+.nav button {
+    padding: 10px;
+    width: 100px;
+    display: block;
+    margin: 10px auto;
+}
+
+.discount {
+    margin-top: -15px;
+    color: #d25ca1;
+}

@@ -9,9 +9,18 @@ import { SiteHeaderComponent } from './site-header/site-header.component';
 import { SignalsComponent } from './signals/signals.component';
 import { ProductsComponent } from './products/products.component';
 import { NgClass } from '@angular/common';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  imports: [App, RouterModule, CatalogComponent, CartComponent, SiteHeaderComponent, ProductsComponent, NgClass],
-  declarations: [PageNotFoundComponent, SignalsComponent],
+  imports: [
+    App,
+    RouterModule,
+    CatalogComponent,
+    CartComponent,
+    SiteHeaderComponent,
+    ProductsComponent,
+    NgClass,
+  ],
+  declarations: [PageNotFoundComponent, SignalsComponent, HomeComponent],
 })
 export class AppModule {}
