@@ -18,9 +18,9 @@ import { HomeComponent } from './home/home.component';
     CatalogComponent,
     CartComponent,
     SiteHeaderComponent,
-    ProductsComponent,
+    ProductsComponent, HomeComponent,
     NgClass,
   ],
-  declarations: [PageNotFoundComponent, SignalsComponent, HomeComponent],
+  declarations: [PageNotFoundComponent, SignalsComponent],
 })
-export class AppModule {}
+export class AppModule { }
