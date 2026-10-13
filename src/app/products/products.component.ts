@@ -18,7 +18,7 @@ export class ProductsComponent {
   product1: IProduct | undefined;
   selectedProduct = signal<IProduct | undefined>(undefined);
   total = computed(() => (this.selectedProduct()?.price ?? 0) * this.quantity());
-
+  color = computed(() => this.total() > 1000 ? 'green' : '');
   setSelectedProduct() {
     this.selectedProduct.set(this.products()[1]);
   }
