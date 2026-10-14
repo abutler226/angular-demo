@@ -17,8 +17,11 @@ export class ProductsComponent {
   price = signal(0)
 
   productsResource = this.productService.getProducts();
+
   products = this.productService.productsResource.value;
-  //products = this.productsResource.value();//use for only binding during page life cycle
+  isLoading = this.productService.productsResource.isLoading;
+  error = this.productService.productsResource.error;
+  errorMessage = computed(() => this.error() ? this.error()?.message : '');
 
   selectedProduct = signal<IProduct | undefined>(undefined);
 
