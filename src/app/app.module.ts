@@ -11,22 +11,11 @@ import { ProductsComponent } from './products/products.component';
 import { NgClass } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './services/in-memory-data.service';
-import { HttpClientModule } from '@angular/common/http';
-import { ReviewsComponent } from './reviews/reviews.component';
-
 @NgModule({
   imports: [
-    App,
-    RouterModule,
-    CatalogComponent,
-    CartComponent,
-    SiteHeaderComponent,
-    ProductsComponent,
-    HomeComponent,
-    NgClass,
+    App, RouterModule, NgClass,
+    CatalogComponent, CartComponent, SiteHeaderComponent, ProductsComponent, HomeComponent, 
   ],
-  declarations: [PageNotFoundComponent, SignalsComponent, ReviewsComponent],
+  declarations: [PageNotFoundComponent, SignalsComponent],
 })
-export class AppModule {}
+export class AppModule { }

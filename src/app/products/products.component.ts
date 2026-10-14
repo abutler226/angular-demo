@@ -1,12 +1,12 @@
 import { Component, signal, effect, computed, linkedSignal, inject } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IProduct } from '../product-details/product.model';
 import { ProductService } from '../services/product.service';
+import { ReviewsComponent } from '../reviews/reviews.component';
 
 @Component({
   selector: 'ab-products',
-  imports: [FormsModule, CurrencyPipe],
+  imports: [FormsModule, CurrencyPipe, ReviewsComponent],
   styleUrl: './products.component.css',
   templateUrl: './products.component.html',
 })
@@ -64,4 +64,3 @@ export class ProductsComponent {
   //debugging using effect()
   qtyEffect = effect(() => console.log('quantity: ', this.quantity()));
 }
-

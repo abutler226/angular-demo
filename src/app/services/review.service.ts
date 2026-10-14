@@ -1,6 +1,7 @@
 import { httpResource } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { IProduct } from "../product-details/product.model";
+import { effect, inject, Injectable } from "@angular/core";
+import { ProductService } from "./product.service";
+import { IReview } from "../reviews/reviews.model";
 
 @Injectable({
     providedIn: 'root'
@@ -8,6 +9,9 @@ import { IProduct } from "../product-details/product.model";
 
 export class ReviewService {
     private reviewsUrl = 'api/reviews';
+    private productService = inject(ProductService);
 
-    productsResource = httpResource<IProduct[]>(() => this.reviewsUrl, { defaultValue: [] });
+    reviewsResource = httpResource<IReview[]>(() =>
+        //`${this.reviewsUrl}?productId=0`, { defaultValue: [] });
+        `${this.reviewsUrl}?productId=^${this.productService.selectedProduct()?.id}$`, { defaultValue: [] });
 }

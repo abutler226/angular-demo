@@ -53,6 +53,9 @@
             <div class="cellRight" [style.color]="color()">{{total() | currency}}</div>
         </div>
     </div>
+    
+    <ab-reviews />
+    
 
     <div [class.hide]="isDebug">
         <button (click)="setSelectedProduct()">Set Selected Product</button>

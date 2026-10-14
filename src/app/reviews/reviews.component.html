@@ -1,1 +1,38 @@
-<p>reviews works!</p>
+@if (this.reviewService.reviewsResource.error()) {
+<div class="error-banner">
+    <h3>{{ this.reviewService.reviewsResource.status() }} {{ this.reviewService.reviewsResource.statusCode() }}</h3>
+    Failed to load:
+    <fieldset>cause: <br>{{ this.reviewService.reviewsResource.error()?.cause }}</fieldset>
+    <fieldset>message: <br>{{ this.reviewService.reviewsResource.error()?.message }}</fieldset>
+    <fieldset>name: <br>{{ this.reviewService.reviewsResource.error()?.name }}</fieldset>
+    <fieldset>stack: <br>{{ this.reviewService.reviewsResource.error()?.stack }}</fieldset>
+</div>
+} @else if (reviews().length) {
+<table>
+    <caption>Product Reviews:</caption>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Review</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (review of reviews(); track review.id) {
+        <tr>
+            <td>
+                {{ review.title }}
+            </td>
+            <td>
+                {{ review.text }}
+            </td>
+            <td>
+                {{ review.userName }}
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+}@else if (!isLoading()) {
+<div>No reviews found for the selected product</div>
+}

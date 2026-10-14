@@ -8,6 +8,7 @@ import { IProduct } from "../product-details/product.model";
 export class ProductService {
     private productsUrl = 'api/products';
 
+    // Signals to support the template
     selectedProduct = signal<IProduct | undefined>(undefined);
 
     //binds products when ProductService is injected

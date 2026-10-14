@@ -1,9 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ReviewService } from '../services/review.service';
 
 @Component({
   selector: 'ab-reviews',
-  standalone: false,
   styleUrl: './reviews.component.css',
   templateUrl: './reviews.component.html',
 })
-export class ReviewsComponent {}
+export class ReviewsComponent {
+  private reviewService = inject(ReviewService);
+
+  reviews = this.reviewService.reviewsResource.value;
+  isLoading = this.reviewService.reviewsResource.isLoading;
+}

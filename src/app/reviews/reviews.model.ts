@@ -1,7 +1,7 @@
 export interface IReview {
     id: number;
     productId: number;
-    username: string;
+    userName: string;
     title: string;
     text: string;
 }
