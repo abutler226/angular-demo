@@ -3,7 +3,7 @@ import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import allProducts from '../products.json'
 import { IProduct } from '../product-details/product.model';
-//import { ProductService } from './product.service';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'ab-products',
@@ -13,11 +13,12 @@ import { IProduct } from '../product-details/product.model';
 })
 export class ProductsComponent {
   pageTitle = 'Product Selection';
-  //private productService = inject(ProductService);
+  private productService = inject(ProductService);
 
   price = signal(0)
-  products = signal<IProduct[]>(allProducts);
-  //products = this.productService.productsResource.value;
+  //products = signal<IProduct[]>(allProducts);
+  products = this.productService.productsResource.value;
+productsResource = this.productService.productsResource;//testing
 
   selectedProduct = signal<IProduct | undefined>(undefined);
 

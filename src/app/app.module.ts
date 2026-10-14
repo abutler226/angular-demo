@@ -11,6 +11,10 @@ import { ProductsComponent } from './products/products.component';
 import { NgClass } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   imports: [
     App,
@@ -18,8 +22,9 @@ import { HomeComponent } from './home/home.component';
     CatalogComponent,
     CartComponent,
     SiteHeaderComponent,
-    ProductsComponent, HomeComponent,
-    NgClass,
+    ProductsComponent, 
+    HomeComponent,
+    NgClass
   ],
   declarations: [PageNotFoundComponent, SignalsComponent],
 })
