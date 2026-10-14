@@ -1,5 +1,5 @@
 import { httpResource } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Injectable, signal } from "@angular/core";
 import { IProduct } from "../product-details/product.model";
 
 @Injectable({
@@ -7,6 +7,8 @@ import { IProduct } from "../product-details/product.model";
 })
 export class ProductService {
     private productsUrl = 'api/products';
+
+    selectedProduct = signal<IProduct | undefined>(undefined);
 
     //binds products when ProductService is injected
     //used to retrieve data across components, not for CRUD operations

@@ -23,7 +23,8 @@ export class ProductsComponent {
   error = this.productService.productsResource.error;
   errorMessage = computed(() => this.error() ? this.error()?.message : '');
 
-  selectedProduct = signal<IProduct | undefined>(undefined);
+  //selectedProduct = signal<IProduct | undefined>(undefined);
+  selectedProduct =this.productService.selectedProduct;//wiring up with service to make this signal available to review service
 
   quantity = linkedSignal({
     source: this.selectedProduct,   //source of change
