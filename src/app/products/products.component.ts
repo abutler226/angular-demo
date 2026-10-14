@@ -1,7 +1,6 @@
 import { Component, signal, effect, computed, linkedSignal, inject } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import allProducts from '../products.json'
 import { IProduct } from '../product-details/product.model';
 import { ProductService } from '../services/product.service';
 
@@ -16,8 +15,10 @@ export class ProductsComponent {
   private productService = inject(ProductService);
 
   price = signal(0)
-  //products = signal<IProduct[]>(allProducts);
+
+  productsResource = this.productService.getProducts();
   products = this.productService.productsResource.value;
+  //products = this.productsResource.value();//use for only binding during page life cycle
 
   selectedProduct = signal<IProduct | undefined>(undefined);
 
@@ -29,7 +30,7 @@ export class ProductsComponent {
   color = computed(() => this.total() > 1000 ? 'green' : '');
 
   setSelectedProduct() {
-    this.selectedProduct.set(this.products()[1]);
+    this.selectedProduct.set(this.products()[1] ?? []);
   }
   getSelectedProduct() {
     console.log(this.selectedProduct()?.name);
@@ -55,7 +56,6 @@ export class ProductsComponent {
 
   //debugging
   isDebug = true;
-  productsResource = this.productService.productsResource;
 
   //debugging using effect()
   qtyEffect = effect(() => console.log('quantity: ', this.quantity()));
