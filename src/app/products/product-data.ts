@@ -5,15 +5,6 @@ export class ProductData {
   static products: IProduct[] =
     [
       {
-        "id": 50,
-        "description": "A data source coming from product-data",
-        "name": "product-data",
-        "imageName": "arm-articulated-claw.png",
-        "category": "Arms",
-        "price": 275,
-        "discount": 0
-      },
-      {
         "id": 6,
         "description": "An articulated arm with a claw -- great for reaching around corners or working in tight spaces.",
         "name": "Articulated Arm",

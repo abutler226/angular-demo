@@ -4,10 +4,8 @@
 <h1>{{pageTitle}}</h1>
 
 <div class="content">
-@if (productsResource.hasValue()) {
-  <div>Data: {{ productsResource.value() }}</div>
-} @else if (productsResource.error()) {
-  <div class="error-banner"><h3>{{ productsResource.status() }} {{ productsResource.statusCode() }}</h3>
+@if (productsResource.error()) {
+  <div class="error-banner hide"><h3>{{ productsResource.status() }} {{ productsResource.statusCode() }}</h3>
     Failed to load: 
     <fieldset>cause: <br>{{ productsResource.error()?.cause }}</fieldset>
     <fieldset>message: <br>{{ productsResource.error()?.message }}</fieldset>
@@ -16,7 +14,7 @@
   </div>
 } @else if (productsResource.isLoading()) {
   <p>Loading...</p>
-}
+} @else{
     <select id="productSelectList" [(ngModel)]="selectedProduct">
         <option value="undefined" selected>--Select a product--</option>
         @for(product of products(); track product.id) {
@@ -55,11 +53,12 @@
         </div>
     </div>
 
-    <div style="display: none;">
+    <div [class.hide]="isDebug">
         <button (click)="setSelectedProduct()">Set Selected Product</button>
         |
         <button (click)="getSelectedProduct()">Get Selected Product</button>
         |
         <button (click)="getQuantity()">Get Quantity</button>
     </div> 
+}
 </div>

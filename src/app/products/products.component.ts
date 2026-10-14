@@ -18,7 +18,6 @@ export class ProductsComponent {
   price = signal(0)
   //products = signal<IProduct[]>(allProducts);
   products = this.productService.productsResource.value;
-productsResource = this.productService.productsResource;//testing
 
   selectedProduct = signal<IProduct | undefined>(undefined);
 
@@ -53,6 +52,10 @@ productsResource = this.productService.productsResource;//testing
   getQtyClass() {
     return { 'disable': this.selectedProduct() == undefined };
   }
+
+  //debugging
+  isDebug = true;
+  productsResource = this.productService.productsResource;
 
   //debugging using effect()
   qtyEffect = effect(() => console.log('quantity: ', this.quantity()));
