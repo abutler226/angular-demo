@@ -148,3 +148,11 @@ div.info{
     right: 0;
     width: 100%;
 }
+
+.hide {
+  display: none;
+}
+
+.error {
+  color: red;
+}

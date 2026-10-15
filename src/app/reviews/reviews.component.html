@@ -8,7 +8,17 @@
     <fieldset>stack: <br>{{ this.reviewService.reviewsResource.error()?.stack }}</fieldset>
 </div>
 } @else if (reviews().length) {
-<table>
+<h3>Product Reviews:</h3>
+<div class="reviews">
+    @for (review of reviews(); track review.id) {
+        <div class="review-title">{{ review.title }}</div>
+        <div class="review-user">{{ review.userName }}</div>
+        <div class="review-text">{{ review.text }}</div>
+    }
+</div>
+
+<!-- I prefer the style above -->
+<table class="hide">
     <caption>Product Reviews:</caption>
     <thead>
         <tr>

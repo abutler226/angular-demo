@@ -102,11 +102,3 @@ select>option {
   height: auto;
   padding: 3px;
 }
-
-.hide {
-  display: none;
-}
-
-.error {
-  color: red;
-}
