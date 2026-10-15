@@ -5,6 +5,8 @@ import { CartComponent } from './cart/cart.component';
 import { SignalsComponent } from './signals/signals.component';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LibraryComponent } from './library/library.component';
 
 export const routes: Routes = [
   //{ path: '', redirectTo: 'catalog', pathMatch: 'full' }, //redirects to catalog page, no root access
@@ -13,8 +15,9 @@ export const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'signals', component: SignalsComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'library', component: LibraryComponent },
 
-  //{ path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

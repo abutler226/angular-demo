@@ -1,0 +1,19 @@
+<h3>Quick Library demo: API generated list and DDL for selection options</h3>
+
+<div class="authors">
+    <label>Authors:</label>
+    <select id="productSelectList" [(ngModel)]="selectedAuthor">
+        <option value="undefined" selected>--Select a category--</option>
+        @for(author of books().map(book => book.authors); track author){
+        <option [ngValue]="author">{{author}}</option>
+        }
+    </select>
+</div>
+
+@for(book of books(); track book.id){
+<div class="book">
+    <div class="review-title">{{ book.title }}</div>
+    <div class="review-author">@for(author of book.authors; track author.name){ {{author.name}}<br /> }</div>
+    <div class="review-text">{{ book.summaries?.at(0) }}</div>
+</div>
+}
