@@ -4,18 +4,19 @@
 <h1>{{pageTitle}}</h1>
 
 <div class="content">
-@if (productsResource.error()) {
-  <div class="error-banner hide"><h3>{{ productsResource.status() }} {{ productsResource.statusCode() }}</h3>
-    Failed to load: 
-    <fieldset>cause: <br>{{ productsResource.error()?.cause }}</fieldset>
-    <fieldset>message: <br>{{ productsResource.error()?.message }}</fieldset>
-    <fieldset>name: <br>{{ productsResource.error()?.name }}</fieldset>
-    <fieldset>stack: <br>{{ productsResource.error()?.stack }}</fieldset>
-  </div>
-  <div class="error">An error has occurred: {{errorMessage()}}</div>
-} @else if (productsResource.isLoading()) {
-  <p>Loading...</p>
-} @else{
+    @if (productsResource.error()) {
+    <div class="error-banner hide">
+        <h3>{{ productsResource.status() }} {{ productsResource.statusCode() }}</h3>
+        Failed to load:
+        <fieldset>cause: <br>{{ productsResource.error()?.cause }}</fieldset>
+        <fieldset>message: <br>{{ productsResource.error()?.message }}</fieldset>
+        <fieldset>name: <br>{{ productsResource.error()?.name }}</fieldset>
+        <fieldset>stack: <br>{{ productsResource.error()?.stack }}</fieldset>
+    </div>
+    <div class="error">An error has occurred: {{errorMessage()}}</div>
+    } @else if (productsResource.isLoading()) {
+    <p>Loading...</p>
+    } @else{
     <select id="productSelectList" [(ngModel)]="selectedProduct">
         <option value="undefined" selected>--Select a product--</option>
         @for(product of products(); track product.id) {
@@ -40,22 +41,22 @@
             <div class="cellLeft"><label for="quantity">Quantity:</label></div>
             <div class="cellRight">
                 <div class="inputContainer">
-                    <button class="qtyButton qtyButtonLeft" (click)="onDecrease()" >-</button>
+                    <button class="qtyButton qtyButtonLeft" (click)="onDecrease()">-</button>
                     <input class="quantityInput" id="quantity" type="number" [(ngModel)]="quantity"
                         value="{{quantity()}}" />
-                    <button class="qtyButton qtyButtonRight" (click)="onIncrease()" >+</button>
+                    <button class="qtyButton qtyButtonRight" (click)="onIncrease()">+</button>
                 </div>
 
             </div>
         </div>
-        <div class="row">
+        <div [ngClass]="toggleSelectedProductOptions(true)">
             <div class="cellLeft">Total:</div>
             <div class="cellRight" [style.color]="color()">{{total() | currency}}</div>
         </div>
     </div>
-    
-    <ab-reviews />
-    
+
+    <ab-reviews [ngClass]="toggleSelectedProductOptions(false)" />
+
 
     <div [class.hide]="isDebug">
         <button (click)="setSelectedProduct()">Set Selected Product</button>
@@ -63,6 +64,6 @@
         <button (click)="getSelectedProduct()">Get Selected Product</button>
         |
         <button (click)="getQuantity()">Get Quantity</button>
-    </div> 
-}
+    </div>
+    }
 </div>

@@ -11,7 +11,17 @@ export class ReviewService {
     private reviewsUrl = 'api/reviews';
     private productService = inject(ProductService);
 
-    reviewsResource = httpResource<IReview[]>(() =>
-        //`${this.reviewsUrl}?productId=0`, { defaultValue: [] });
-        `${this.reviewsUrl}?productId=^${this.productService.selectedProduct()?.id}$`, { defaultValue: [] });
+    // reviewsResource = httpResource<IReview[]>(() =>
+    //     `${this.reviewsUrl}?productId=^${this.productService.selectedProduct()?.id}$`, { defaultValue: [] });
+
+    reviewsResource = httpResource<IReview[]>(() => {
+        const p = this.productService.selectedProduct();
+        if(p)
+            return `${this.reviewsUrl}?productId=^${p.id}$`;
+        else
+            return undefined;
+    }, { defaultValue: [] });
+
+    eff1 = effect(() => console.log('loading reviews: ', this.reviewsResource.isLoading()));
+    eff2 = effect(() => console.log('selectedProduct: ', this.productService.selectedProduct()));
 }

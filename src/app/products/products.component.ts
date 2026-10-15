@@ -1,12 +1,12 @@
 import { Component, signal, effect, computed, linkedSignal, inject } from '@angular/core';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 import { ReviewsComponent } from '../reviews/reviews.component';
 
 @Component({
   selector: 'ab-products',
-  imports: [FormsModule, CurrencyPipe, ReviewsComponent],
+  imports: [FormsModule, CurrencyPipe, ReviewsComponent, NgClass],
   styleUrl: './products.component.css',
   templateUrl: './products.component.html',
 })
@@ -56,6 +56,11 @@ export class ProductsComponent {
 
   getQtyClass() {
     return { 'disable': this.selectedProduct() == undefined };
+  }
+
+  toggleSelectedProductOptions(isRow : boolean){
+    var isHidden = (this.selectedProduct()?.id ?? 0) <= 0;
+    return {'hide': isHidden, 'row': !isHidden && isRow };
   }
 
   //debugging
