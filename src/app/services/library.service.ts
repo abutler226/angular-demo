@@ -8,8 +8,6 @@ import { httpResource } from "@angular/common/http";
 export class LibraryService {
     private libraryUrl = 'https://gutendex.com/books/?ids=71,11,12,13,60600';
 
-    selectedBook = signal<IBook | undefined>(undefined);
-
     // Signals to support the template
     selectedAuthor = signal<string | "">("");
 

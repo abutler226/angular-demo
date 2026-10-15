@@ -2,7 +2,7 @@
 
 <div class="authors">
     <label>Authors:</label>
-    <select id="productSelectList" [(ngModel)]="selectedAuthor">
+    <select id="authorSelectList" [(ngModel)]="selectedAuthor">
         <option value="undefined" selected>--Select an author--</option>
         @for(author of uniqueAuthors; track author){
         <option [ngValue]="author">{{author}}</option>
