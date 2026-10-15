@@ -7,7 +7,7 @@
     <fieldset>name: <br>{{ this.reviewService.reviewsResource.error()?.name }}</fieldset>
     <fieldset>stack: <br>{{ this.reviewService.reviewsResource.error()?.stack }}</fieldset>
 </div>
-} @else if (reviews().length) {
+} @else if (reviews()?.length) {
 <h3>Product Reviews:</h3>
 <div class="reviews">
     @for (review of reviews(); track review.id) {
