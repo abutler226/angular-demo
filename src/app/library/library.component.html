@@ -3,8 +3,8 @@
 <div class="authors">
     <label>Authors:</label>
     <select id="productSelectList" [(ngModel)]="selectedAuthor">
-        <option value="undefined" selected>--Select a category--</option>
-        @for(author of books().map(book => book.authors); track author){
+        <option value="undefined" selected>--Select an author--</option>
+        @for(author of uniqueAuthors; track author){
         <option [ngValue]="author">{{author}}</option>
         }
     </select>
