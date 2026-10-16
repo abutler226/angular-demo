@@ -10,7 +10,7 @@
     </select>
 </div>
 
-@for(book of books(); track book.id){
+@for(book of booksByAuthor(); track book.id){
 <div class="book">
     <div class="review-title">{{ book.title }}</div>
     <div class="review-author">@for(author of book.authors; track author.name){ {{author.name}}<br /> }</div>

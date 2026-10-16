@@ -16,18 +16,39 @@ export class LibraryComponent {
 
   libraryResource = this.libraryService.getBooks();
   books = this.libraryResource.value;
+  //booksByAuthor = signal(this.books().values);//create new signal based on books value, don't assign to books signal
 
-  selectedAuthor = signal<IBook | undefined>(undefined);
-
-  author = linkedSignal({
+  //selectedAuthor = this.libraryService.selectedAuthor;
+  selectedAuthor = signal<string | "">("");
+  booksByAuthor = linkedSignal({
     source: this.selectedAuthor,   //source of change
-    computation: q => 1             //TODO: reset books to a subset by author
+    computation: b => this.getBooksBySelectedAuthor() //update booksByAuthor
   });
-  
+
   authors: { name: string }[] = [];
   uniqueAuthors: string[] = [];
 
-  // Populate authors list once books are returned
+  getBooksBySelectedAuthor() {
+    if (this.selectedAuthor() == "")
+      return this.books();
+
+    //filter book list by selected author
+    //this isn't filtering as I expect.  Will revisit, but using a forEach instead for now
+    //var newBooks = this.books().filter(b => b.authors.filter(a => a.name === this.selectedAuthor()));
+    //console.log('newBooks', newBooks.length);
+    //return newBooks;//this.books().filter(b=>b.authors.filter(a=>a.name===this.selectedAuthor()));
+
+    var newBooks: IBook[] = [];
+    this.books().forEach(b => {
+      if(b.authors.find(a=>a.name===this.selectedAuthor() || this.selectedAuthor()===""))
+        newBooks.push(b);
+    });
+
+
+    return newBooks;
+  }
+
+  // Populate authors lists once books are returned
   error = this.libraryResource.error;
   prodEff = effect(() => {
     if (!this.error()) {
