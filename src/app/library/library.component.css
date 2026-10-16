@@ -1,7 +1,27 @@
+.authors {
+    margin-bottom: 25px;
+}
 
-.authors {margin-bottom: 25px;}
-.book {padding: 15px;border-top: 1px solid #d25ca1;}
+.book {
+    padding: 15px;
+    border-top: 1px solid #d25ca1;
+}
 
-.review-title{font-weight: bold;}
+.review-title {
+    font-weight: bold;
+}
 
-.review-author{font-style: italic;margin-bottom: 15px;}
+.review-author {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+fieldset {
+    float: right;
+}
+
+label {
+    color: #d25ca1;
+    font-weight: bold;
+    margin: 0px 10px;
+}
