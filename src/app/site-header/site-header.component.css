@@ -7,8 +7,10 @@
     border-bottom: 2px solid #818285;
 }
 
-:host * {
+:host img, :host a {
     margin-right: 25px;
 }
+
+div{ border-left: 1px solid #d25ca1;padding: 0 15px;margin:0;}
 
 img { height: 65px;}
