@@ -124,19 +124,6 @@ button.cta:disabled {
   cursor: not-allowed;
 }
 
-div.info-banner{
-    background: #e2e2e2;
-    text-align: center;
-    font-style: italic;
-    margin: -10px;
-    padding: 5px;
-}
-
-div.info-banner a{
-    font-weight: bold;
-    color: #d25ca1;
-}
-
 div.info{
     background: #e2e2e2;
     text-align: center;
