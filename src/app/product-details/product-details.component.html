@@ -4,12 +4,21 @@
         <div>
             <h2>{{product().name}} {{message}}</h2>
             <p>{{product().description}}</p>
-            <p>Part Type: {{product().category}} </p>
+            <p>Part Type:
+                @switch(product().category){
+                @case('heads'){Head}
+                @case('arms'){Arm}
+                @case('bases'){Base}
+                @case('torsos'){Torso}
+                @default {  {{product().category}}  }
+                }
+            </p>
             @if (product().productNotes; as notes){<p class="info">{{notes}}</p>}
-            <p>Inventory: {{availableInventory()}} 
+            <p>Inventory: {{availableInventory()}}
                 @if(availableInventory() < 1){<span class="pill red">Out of stock!</span>}
-                @else if (availableInventory() < 3){<span class="pill red">Only {{availableInventory()}} left!</span>}
-                @else if(availableInventory() < 5){<span class="pill yellow">few left!</span>}                
+                @else if (availableInventory() < 3){<span class="pill red">Only {{availableInventory()}}
+                left!</span>}
+                @else if(availableInventory() < 5){<span class="pill yellow">few left!</span>}
                 @else {<span class="pill">Get yours today!</span>}
             </p>
         </div>
@@ -17,7 +26,7 @@
     <div class="price">
         <p [ngClass]="getPriceClasses()">{{product().price|currency}}</p>
         <p [class.strikethrough]="product().discount>0" style="display: none;">{{product().price|currency}}</p>
- 
+
         @if (product().discount>0){
         <p class="discount">{{product().price * (1-product().discount) | currency}}</p>
         }
