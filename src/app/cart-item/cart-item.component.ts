@@ -1,6 +1,7 @@
-import { Component, signal, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { IProduct } from '../product-details/product.model'
 import { CurrencyPipe, NgClass } from '@angular/common';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'ab-cart-item',
@@ -11,12 +12,14 @@ import { CurrencyPipe, NgClass } from '@angular/common';
 export class CartItemComponent {
   product = input.required<IProduct>();
 
+  constructor(private cartService: CartService) {}
+
   getImageURL(product: IProduct) {
     return '/images/robot-parts/' + product.imageName;
   }
 
   removeFromCart(){
-
+    this.cartService.removeFromCart(this.product());
   }
 
   getPriceClasses() {

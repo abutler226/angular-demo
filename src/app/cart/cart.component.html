@@ -3,7 +3,7 @@
 
 <h1 class="header">Your Cart</h1>
 <ul>
-    @for(product of cartItems; track product.id){
+    @for(product of cartItems(); track product.id){
     <li>
         <ab-cart-item [product]="product" />
     </li>

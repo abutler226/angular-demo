@@ -1,15 +1,7 @@
-<div class="info-banner">PluralSight: <a href="https://app.pluralsight.com/ilx/video-courses/angular-foundations/"
-        target="_blank">Angular Foundations</a></div>
-
 <ul>
-    @for (product of products; track product.id){
-    <li>
-        <ab-product-details [product]="product" />
-    </li>
-    }
+  @for (product of products; track product.id) {
+  <li>
+    <ab-product-details [product]="product" />
+  </li>
+  }
 </ul>
-
-<div class="info">
-    <b>To create:</b> ng generate component catalog --type=component <br />
-    <b>Troubleshoot:</b> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser <br />
-</div>

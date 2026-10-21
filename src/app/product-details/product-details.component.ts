@@ -1,6 +1,7 @@
 import { Component, signal, input } from '@angular/core';
 import { IProduct } from './product.model';
 import { CurrencyPipe, NgClass } from '@angular/common';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'ab-product-details',
@@ -14,17 +15,15 @@ export class ProductDetailsComponent {
   isButtonDisabled = signal(false);
   message = "";
 
+  constructor(private cartService: CartService) { }
+
   getImageURL(product: IProduct) {
     return '/images/robot-parts/' + product.imageName;
   }
 
   addToCart(product: IProduct, event: MouseEvent) {
-    //this.availableInventory.set(2) //will update value explicitly to 2
-    //this.availableInventory.update((p) => this.availableInventory() - 1) //will update interface explicitly to 2 every time
-    //setTimeout(() => this.availableInventory.update((p) => p - 1), 2000); //will update availableInventory by -1 each time
-    setTimeout(() => this.updateInventory(product), 100); //check to only allow decrement to 0
-    var msg = product.name + " added to cart " + new Date().toLocaleTimeString();
-    console.log(msg);
+    this.availableInventory.update((p) => p - 1);
+    this.cartService.addToCart(this.product());
   }
 
   updateInventory(product: IProduct) {
