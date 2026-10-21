@@ -65,3 +65,20 @@ div {
 .full-price {
   font-weight: bold;
 }
+
+.pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #ccc;
+}
+
+.red {
+  background: #dc3545;
+  color: #fff;
+}
+
+.yellow{
+  background: #ffc107;
+  color: #555;
+}

@@ -11,7 +11,7 @@ import { CartService } from '../services/cart.service';
 })
 export class ProductDetailsComponent {
   product = input.required<IProduct>();
-  availableInventory = signal(3);
+  availableInventory = signal(5);
   isButtonDisabled = signal(false);
   message = "";
 
@@ -22,7 +22,8 @@ export class ProductDetailsComponent {
   }
 
   addToCart(product: IProduct, event: MouseEvent) {
-    this.availableInventory.update((p) => p - 1);
+    //this.availableInventory.update((p) => p - 1);
+    this.updateInventory(product);
     this.cartService.addToCart(this.product());
   }
 
@@ -32,7 +33,7 @@ export class ProductDetailsComponent {
     if (this.availableInventory() == 0)
       this.isButtonDisabled.set(true);
 
-    console.log(this.availableInventory());
+    //console.log(this.availableInventory());
   }
 
   getPriceClasses() {
