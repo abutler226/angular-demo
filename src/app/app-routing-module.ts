@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CartComponent } from './cart/cart.component';
-import { SignalsComponent } from './signals/signals.component';
+import { SandboxComponent } from './sandbox/sandbox.component';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -13,7 +13,7 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'catalog', component: CatalogComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'signals', component: SignalsComponent },
+  { path: 'sandbox', component: SandboxComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'library', component: LibraryComponent },
 
