@@ -1,6 +1,7 @@
 <ul>
-  @for (product of products; track product.id) {
-  <li>
+  @for (product of products; track product.id; let idx = $index, count = $count, odd=$odd, first=$first) {
+  <li [class.alt]="odd" [class.top]="first">
+    <div>Product {{idx+1}} of {{count}}</div>
     <ab-product-details [product]="product" />
   </li>
   }
