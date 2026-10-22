@@ -2,11 +2,10 @@ import { Component, signal, Signal } from '@angular/core';
 import { IProduct } from '../product-details/product.model';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { CartService } from '../services/cart.service';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'ab-cart',
-  imports: [CartItemComponent, NgClass],
+  imports: [CartItemComponent],
   styleUrl: './cart.component.css',
   templateUrl: './cart.component.html'
 })
