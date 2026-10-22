@@ -4,13 +4,17 @@
 
 <h1 class="header">Your Cart</h1>
 
-<button [ngClass]="{'hide': hasCartItems}" (click)="checkout.scrollIntoView()">Proceed to Checkout</button>
+ <!-- @if(hasCartItems){
+<button (click)="checkout.scrollIntoView()">Proceed to Checkout</button>
+ } -->
 <ul>
     @for(product of cartItems(); track product.id){
     <li>
         <ab-cart-item [product]="product" />
     </li>
-    }
+    }@empty {<h2>No items in cart</h2>}
 </ul>
 
-<button #checkout [disabled]="hasCartItems" class="cta">Checkout</button>
+@if(hasCartItems){
+<button #checkout [disabled]="isButtonDisabled()" class="cta">Checkout</button>
+}

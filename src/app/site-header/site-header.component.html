@@ -1,7 +1,8 @@
+@let hasCartItems = cartItems().length > 0;
 <a routerLink="/"><img src="/images/logo.png" alt="Logo"></a>
 <div>
     <a routerLink="/catalog">Catalog</a>
-    <a routerLink="/cart">Cart ({{this.cartService?.cart()?.length ?? ''}})</a>
+    <a routerLink="/cart">Cart @if(hasCartItems){({{this.cartService?.cart()?.length ?? ''}})}</a>
 </div>
 <div><a routerLink="/products">Products</a></div>
 <div><a routerLink="/library">Library</a></div>
