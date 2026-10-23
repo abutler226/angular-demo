@@ -22,10 +22,3 @@ ul {
 .filters button {
   width: 120px;
 }
-
-button.cta {
-  padding: 10px;
-  width: 100px;
-  display: block;
-  margin: 10px auto;
-}
