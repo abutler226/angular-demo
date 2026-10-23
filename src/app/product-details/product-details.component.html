@@ -12,16 +12,14 @@
                 @case('arms'){Arm}
                 @case('bases'){Base}
                 @case('torsos'){Torso}
-                @default {  {{p.category}}  }
+                @default { {{p.category}} }
                 }
             </p>
             @if (p.productNotes; as notes){<p class="info">{{notes}}</p>}
             <p>Inventory: {{availableInventory()}}
-                @if(availableInventory() < 1){<span class="pill red">Out of stock!</span>}
-                @else if (availableInventory() < 3){<span class="pill red">Only {{availableInventory()}}
-                left!</span>}
-                @else if(availableInventory() < 5){<span class="pill yellow">few left!</span>}
-                @else {<span class="pill">Get yours today!</span>}
+                <span class="pill" 
+                 [class.yellow]="availableInventory()<5&&availableInventory()>2"
+                 [class.red]="availableInventory()<5">{{availableInventory()|i18nPlural:inventoryMap}}</span>
             </p>
         </div>
     </div>

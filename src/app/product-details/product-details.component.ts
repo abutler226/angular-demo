@@ -1,11 +1,11 @@
 import { Component, signal, input } from '@angular/core';
 import { IProduct } from './product.model';
-import { CurrencyPipe, NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'ab-product-details',
-  imports: [CurrencyPipe, NgClass],
+  imports: [CommonModule],
   styleUrl: './product-details.component.css',
   templateUrl: './product-details.component.html',
 })
@@ -14,6 +14,15 @@ export class ProductDetailsComponent {
   availableInventory = signal(5);
   isButtonDisabled = signal(false);
   message = "";
+
+inventoryMap={
+  '=0':'Out of Stock',
+  '=1':'Only one left!',
+  '=2':'Few left!',
+  '=3':'Few left!',
+  '=4':'Few left!',
+  other:'Get yours today!',
+}
 
   constructor(private cartService: CartService) { }
 
