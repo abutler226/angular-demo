@@ -25,6 +25,6 @@ export class CatalogComponent {
       "category": "bases",
       "price": 2001.90,
       "discount": 1
-    })
+    }];
   }
 }

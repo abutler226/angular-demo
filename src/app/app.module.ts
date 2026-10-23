@@ -26,8 +26,9 @@ import { FilterByCategoryPipePipe } from './filter-by-category-pipe-pipe';
     HomeComponent,
     LibraryComponent,
     SandboxComponent,
-    CategoryToPartTypePipe,
+    CategoryToPartTypePipe, 
+    FilterByCategoryPipePipe,
   ],
-  declarations: [PageNotFoundComponent, FilterByCategoryPipePipe],
+  declarations: [PageNotFoundComponent],
 })
 export class AppModule {}

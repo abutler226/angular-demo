@@ -26,6 +26,7 @@
         <p class="discount">{{discountedPrice}}</p>
         }
 
+        <ng-content/>
         <button [disabled]="isButtonDisabled()" class="cta" (click)="addToCart(product(), $event)">Buy</button>
     </div>
 </div>
