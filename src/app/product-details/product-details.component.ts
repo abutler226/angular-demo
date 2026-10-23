@@ -2,10 +2,11 @@ import { Component, signal, input } from '@angular/core';
 import { IProduct } from './product.model';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../services/cart.service';
+import { CategoryToPartTypePipe } from '../category-to-part-type-pipe';
 
 @Component({
   selector: 'ab-product-details',
-  imports: [CommonModule],
+  imports: [CommonModule, CategoryToPartTypePipe],
   styleUrl: './product-details.component.css',
   templateUrl: './product-details.component.html',
 })

@@ -7,13 +7,7 @@
             <h2>{{p.name}} {{message}}</h2>
             <p>{{p.description}}</p>
             <p>Part Type:
-                @switch(p.category){
-                @case('heads'){Head}
-                @case('arms'){Arm}
-                @case('bases'){Base}
-                @case('torsos'){Torso}
-                @default { {{p.category}} }
-                }
+                {{p.category|categoryToPartType}}
             </p>
             @if (p.productNotes; as notes){<p class="info">{{notes}}</p>}
             <p>Inventory: {{availableInventory()}}
