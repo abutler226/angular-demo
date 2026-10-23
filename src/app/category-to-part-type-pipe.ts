@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'categoryToPartType'
 })
 export class CategoryToPartTypePipe implements PipeTransform {
-  transform(category: string, uppercase: boolean): string {
+  transform(category: string, uppercase: boolean = true): string {
     if(uppercase)
       return category[0].toUpperCase() + category.slice(1, -1);
     else
