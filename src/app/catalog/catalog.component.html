@@ -1,5 +1,14 @@
+<div class="filters">
+    <button (click)="categoryFilter='heads'">Heads</button>
+    <button (click)="categoryFilter='arms'">Arms</button>
+    <button (click)="categoryFilter='torsos'">Torsos</button>
+    <button (click)="categoryFilter='bases'">Bases</button>
+    <button (click)="categoryFilter=''">All</button>
+    <button (click)="addProduct()">New</button>
+</div>
+
 <ul>
-  @for (product of products; track product.id; let idx = $index, count = $count, odd=$odd, first=$first) {
+  @for (product of products | filterByCategory: categoryFilter; track product.id; let idx = $index, count = $count, odd=$odd, first=$first) {
   <li [class.alt]="odd" [class.top]="first">
     <div>Product {{idx+1}} of {{count}}</div>
     <ab-product-details [product]="product" />

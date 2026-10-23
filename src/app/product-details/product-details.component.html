@@ -1,5 +1,6 @@
 @let p= product();
 @let discountedPrice = p.price * (1-p.discount) | currency;
+
 <div class="product">
     <img [src]="getImageURL(p)" [alt]="p.name" [title]="p.name" />
     <div class="details">

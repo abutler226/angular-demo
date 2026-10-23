@@ -7,6 +7,18 @@ ul {
 }
 
 .top {
-  border: 1px dotted #d25ca1;/*testing, override below*/
+  border: 1px dotted #d25ca1;
+  /*testing, override below*/
   border: 0;
+}
+
+.filters {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.filters button {
+  width: 120px;
 }

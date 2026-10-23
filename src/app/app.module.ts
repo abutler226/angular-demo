@@ -12,6 +12,7 @@ import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
 import { LibraryComponent } from './library/library.component';
 import { CategoryToPartTypePipe } from './category-to-part-type-pipe';
+import { FilterByCategoryPipePipe } from './filter-by-category-pipe-pipe';
 
 @NgModule({
   imports: [
@@ -24,9 +25,9 @@ import { CategoryToPartTypePipe } from './category-to-part-type-pipe';
     ProductsComponent,
     HomeComponent,
     LibraryComponent,
-    SandboxComponent, 
-    CategoryToPartTypePipe
+    SandboxComponent,
+    CategoryToPartTypePipe,
   ],
-  declarations: [PageNotFoundComponent],
+  declarations: [PageNotFoundComponent, FilterByCategoryPipePipe],
 })
 export class AppModule {}
