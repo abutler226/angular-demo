@@ -7,7 +7,7 @@
             <h2>{{p.name}} {{message}}</h2>
             <p>{{p.description}}</p>
             <p>Part Type:
-                {{p.category|categoryToPartType}}
+                {{p.category | categoryToPartType:false}}
             </p>
             @if (p.productNotes; as notes){<p class="info">{{notes}}</p>}
             <p>Inventory: {{availableInventory()}}

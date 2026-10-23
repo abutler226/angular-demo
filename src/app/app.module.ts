@@ -24,8 +24,9 @@ import { CategoryToPartTypePipe } from './category-to-part-type-pipe';
     ProductsComponent,
     HomeComponent,
     LibraryComponent,
-    SandboxComponent,
+    SandboxComponent, 
+    CategoryToPartTypePipe
   ],
-  declarations: [PageNotFoundComponent, CategoryToPartTypePipe],
+  declarations: [PageNotFoundComponent],
 })
 export class AppModule {}
