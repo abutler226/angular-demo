@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 import allProducts from '../products.json';
 import { FilterByCategoryPipePipe } from '../filter-by-category-pipe-pipe';
+import { IProduct } from '../product-details/product.model';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'ab-catalog',
@@ -10,9 +12,16 @@ import { FilterByCategoryPipePipe } from '../filter-by-category-pipe-pipe';
   imports: [ProductDetailsComponent, FilterByCategoryPipePipe]
 })
 export class CatalogComponent {
+  constructor(private cartService: CartService) { }
+
   products = allProducts;
 
   categoryFilter: string | null = null;
+
+  isButtonDisabled(){
+    //todo: wire up with signal from child component
+    return false;
+  }
 
   addProduct() {
     //update products to be full list plus new item
@@ -27,4 +36,11 @@ export class CatalogComponent {
       "discount": 1
     }];
   }
+
+
+    addToCart(product: IProduct, event: MouseEvent) {
+      //this.updateInventory(product);
+      this.cartService.addToCart(product);
+    }
+
 }

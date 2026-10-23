@@ -1,11 +1,11 @@
 import { Component, signal, Signal } from '@angular/core';
 import { IProduct } from '../product-details/product.model';
-import { CartItemComponent } from '../cart-item/cart-item.component';
 import { CartService } from '../services/cart.service';
+import { ProductDetailsComponent } from '../product-details/product-details.component';
 
 @Component({
   selector: 'ab-cart',
-  imports: [CartItemComponent],
+  imports: [ProductDetailsComponent],
   styleUrl: './cart.component.css',
   templateUrl: './cart.component.html'
 })
@@ -17,5 +17,9 @@ export class CartComponent {
     this.cartItems = this.cartService.cart;
 
     this.isButtonDisabled.update((b) => this.cartItems().length==0);
+  }
+  
+  removeFromCart(product: IProduct){
+    this.cartService.removeFromCart(product);
   }
 }

@@ -5,12 +5,14 @@
 <h1 class="header">Your Cart</h1>
 
  <!-- @if(hasCartItems){
-<button (click)="checkout.scrollIntoView()">Proceed to Checkout</button>
+<button class="float-right" (click)="checkout.scrollIntoView()">Proceed to Checkout</button>
  } -->
 <ul>
     @for(product of cartItems(); track product.id){
     <li>
-        <ab-cart-item [product]="product" />
+        <ab-product-details [product]="product">
+           <button class="remove" (click)="removeFromCart(product)">Remove</button> 
+        </ab-product-details>
     </li>
     }@empty {<h2>No items in cart</h2>}
 </ul>

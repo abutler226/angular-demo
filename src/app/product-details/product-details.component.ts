@@ -1,7 +1,6 @@
 import { Component, signal, input } from '@angular/core';
 import { IProduct } from './product.model';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../services/cart.service';
 import { CategoryToPartTypePipe } from '../category-to-part-type-pipe';
 
 @Component({
@@ -25,16 +24,9 @@ inventoryMap={
   other:'Get yours today!',
 }
 
-  constructor(private cartService: CartService) { }
 
   getImageURL(product: IProduct) {
     return '/images/robot-parts/' + product.imageName;
-  }
-
-  addToCart(product: IProduct, event: MouseEvent) {
-    //this.availableInventory.update((p) => p - 1);
-    this.updateInventory(product);
-    this.cartService.addToCart(this.product());
   }
 
   updateInventory(product: IProduct) {

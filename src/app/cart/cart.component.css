@@ -1,1 +1,8 @@
-button {float:right;}
+button.float-right {float:right;}
+
+button.remove {
+  padding: 10px;
+  width: 100px;
+  display: block;
+  margin: 10px auto;
+}
