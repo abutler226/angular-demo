@@ -18,10 +18,10 @@ export class CatalogComponent {
 
   categoryFilter: string | null = null;
 
-  isButtonDisabled(){
-    //todo: wire up with signal from child component
-    return false;
-  }
+isButtonDisabled(){
+  //todo: wire up with signal from child component
+  return false;
+}
 
   addProduct() {
     //update products to be full list plus new item
@@ -38,9 +38,8 @@ export class CatalogComponent {
   }
 
 
-    addToCart(product: IProduct, event: MouseEvent) {
+    addToCart(product: IProduct) {
       //this.updateInventory(product);
       this.cartService.addToCart(product);
     }
-
 }

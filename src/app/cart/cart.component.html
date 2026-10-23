@@ -10,9 +10,7 @@
 <ul>
     @for(product of cartItems(); track product.id){
     <li>
-        <ab-product-details [product]="product">
-            <button class="remove" (click)="removeFromCart(product)">Remove</button>
-        </ab-product-details>
+        <ab-product-details [product]="product" mode="cart" (removeFromCart)="removeFromCart($event)" />
     </li>
     }@empty {<h2>No items in cart</h2>}
 </ul>

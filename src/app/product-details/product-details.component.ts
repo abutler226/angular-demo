@@ -1,7 +1,8 @@
-import { Component, signal, input } from '@angular/core';
+import { Component, signal, input, output } from '@angular/core';
 import { IProduct } from './product.model';
 import { CommonModule } from '@angular/common';
 import { CategoryToPartTypePipe } from '../category-to-part-type-pipe';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'ab-product-details',
@@ -10,20 +11,23 @@ import { CategoryToPartTypePipe } from '../category-to-part-type-pipe';
   templateUrl: './product-details.component.html',
 })
 export class ProductDetailsComponent {
+  constructor(private cartService: CartService) { }
+
   product = input.required<IProduct>();
+  mode = input<'shop' | 'cart'>('shop');
+
   availableInventory = signal(5);
   isButtonDisabled = signal(false);
   message = "";
 
-inventoryMap={
-  '=0':'Out of Stock',
-  '=1':'Only one left!',
-  '=2':'Few left!',
-  '=3':'Few left!',
-  '=4':'Few left!',
-  other:'Get yours today!',
-}
-
+  inventoryMap = {
+    '=0': 'Out of Stock',
+    '=1': 'Only one left!',
+    '=2': 'Few left!',
+    '=3': 'Few left!',
+    '=4': 'Few left!',
+    other: 'Get yours today!',
+  }
 
   getImageURL(product: IProduct) {
     return '/images/robot-parts/' + product.imageName;
@@ -41,4 +45,24 @@ inventoryMap={
   getPriceClasses() {
     return { 'strikethrough': this.product().discount > 0, 'full-price': this.product().discount == 0 };
   }
+
+  //communication with parent component via output variables:
+
+  removeFromCart = output<IProduct>();
+  remove() {
+    this.removeFromCart.emit(this.product());
+  }
+  // removeFromCart(product: IProduct) {
+  //   this.cartService.removeFromCart(product);
+  // }
+
+  addToCart = output<IProduct>();
+  add() {
+    this.updateInventory(this.product());
+    this.addToCart.emit(this.product());
+  }
+  // addToCart(product: IProduct, event: MouseEvent) {
+  //   //this.updateInventory(product);
+  //   this.cartService.addToCart(product);
+  // }
 }

@@ -12,9 +12,8 @@
             </p>
             @if (p.productNotes; as notes){<p class="info">{{notes}}</p>}
             <p>Inventory: {{availableInventory()}}
-                <span class="pill" 
-                 [class.yellow]="availableInventory()<5&&availableInventory()>2"
-                 [class.red]="availableInventory()<5">{{availableInventory()|i18nPlural:inventoryMap}}</span>
+                <span class="pill" [class.yellow]="availableInventory()<5&&availableInventory()>2"
+                    [class.red]="availableInventory()<5">{{availableInventory()|i18nPlural:inventoryMap}}</span>
             </p>
         </div>
     </div>
@@ -26,6 +25,11 @@
         <p class="discount">{{discountedPrice}}</p>
         }
 
-        <ng-content/>
+        @if(mode()==='shop'){
+        <button [disabled]="isButtonDisabled()" class="cta" (click)="add()">Buy Me</button>
+        }
+        @else{
+        <button class="remove" (click)="remove()">Remove Me</button>
+    }
     </div>
 </div>

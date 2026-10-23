@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CartComponent } from './cart/cart.component';
-import { SandboxComponent } from './sandbox/sandbox.component';
+import { SandboxComponent } from './signals/sandbox.component';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';

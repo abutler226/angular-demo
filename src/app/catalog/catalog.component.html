@@ -11,9 +11,7 @@
   @for (product of products | filterByCategory: categoryFilter; track product.id; let idx = $index, count = $count, odd=$odd, first=$first) {
   <li [class.alt]="odd" [class.top]="first">
     <div>Product {{idx+1}} of {{count}}</div>
-    <ab-product-details [product]="product">
-      <button [disabled]="isButtonDisabled()" class="cta" (click)="addToCart(product, $event)">Buy</button>
-    </ab-product-details>
+    <ab-product-details [product]="product" mode="shop" (addToCart)="addToCart($event)" />
   </li>
   }
 </ul>
