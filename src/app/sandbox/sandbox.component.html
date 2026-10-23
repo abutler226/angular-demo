@@ -28,7 +28,7 @@
         <br />
         <label>Percent of PI:</label> {{exNumber | percent:'1.1':'en-US'}}
     </div>
-    
+
     <div>
         <h3>Dates:</h3>
         <br />
@@ -42,16 +42,24 @@
         <br />
         <label>longDate (MMMM d, y):</label> {{exDate | date:'longDate'}}
     </div>
- 
+
     <div>
-        <h3>Internationalization: TBD</h3>
+        <h3>Internationalization: </h3>
+        <label>i18nPlural:</label>
+        <p>Cheer chant:
+        {{ itemCount() | i18nPlural: itemMap }}@for (i of [].constructor(itemCount()); track $index) {!}</p> 
+        <button (click)="subtractItem()"><</button>
+        <button (click)="addItem()">></button>
+        <button (click)="resetItems()">Reset</button>
+<hr>
+        <label>i18nSelect:</label>
+        <p>Invitation: {{ gender() | i18nSelect: genderMap }}</p>
+        <button (click)="gender.set('female')">female</button>
+        <button (click)="gender.set('male')">male</button>
+        <button (click)="gender.set('')">Reset</button>
     </div>
 
     <div>
         <h3>Specialized: TBD</h3>
     </div>
 </div>
-
-
-
-        
