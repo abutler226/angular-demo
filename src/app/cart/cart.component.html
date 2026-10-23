@@ -4,19 +4,21 @@
 
 <h1 class="header">Your Cart</h1>
 
- <!-- @if(hasCartItems){
-<button class="float-right" (click)="checkout.scrollIntoView()">Proceed to Checkout</button>
- } -->
+@if(hasCartItems){
+<button class="float-right hide" (click)="checkout.scrollIntoView()">Proceed to Checkout</button>
+}
 <ul>
     @for(product of cartItems(); track product.id){
     <li>
         <ab-product-details [product]="product">
-           <button class="remove" (click)="removeFromCart(product)">Remove</button> 
+            <button class="remove" (click)="removeFromCart(product)">Remove</button>
         </ab-product-details>
     </li>
     }@empty {<h2>No items in cart</h2>}
 </ul>
 
-@if(hasCartItems){
-<button #checkout [disabled]="isButtonDisabled()" class="cta">Checkout</button>
-}
+<span #checkout>
+    @if(hasCartItems){
+    <button [disabled]="isButtonDisabled()" class="cta">Checkout</button>
+    }
+</span>
