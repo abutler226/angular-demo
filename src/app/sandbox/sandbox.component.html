@@ -24,9 +24,13 @@
         <br />
         <label>More PI:</label> {{exNumber | number:'1.1-10':'en-US'}}
         <br />
-        <label>Money PI:</label> {{exNumber | currency:'USD'}}
-        <br />
         <label>Percent of PI:</label> {{exNumber | percent:'1.1':'en-US'}}
+        <br />
+        <label>Currency (USD):</label> {{exNumber | currency:'USD'}}
+        <br />
+        <label>Currency (GBP):</label> {{exNumber | currency:'GBP'}}
+        <br />
+        <label>Currency Code (GBP):</label> {{exNumber | currency:'GBP':'code'}}
     </div>
 
     <div>
