@@ -15,10 +15,12 @@
                 <span class="pill" [class.yellow]="availableInventory()<5 && availableInventory()>2"
                     [class.red]="availableInventory()<5">{{availableInventory()|i18nPlural:inventoryMap}}</span>
             </p>
+            @if(mode()==='shop'){
             <div>
                 Favorite rating: {{favorite()}}
                 <ab-slider [(sliderValue)]="favorite" (sliderValueChange)="sliderChange($event)" />
             </div>
+            }
         </div>
     </div>
     <div class="price">
@@ -30,10 +32,11 @@
         }
 
         @if(mode()==='shop'){
-        <button [disabled]="isButtonDisabled()" class="cta" (click)="add()">Buy Me</button>
+        <button [disabled]="availableInventory()<=0" class="cta" (click)="add()">Buy</button>
         }
         @else{
-        <button class="remove" (click)="remove()">Remove Me</button>
+        <button class="remove" (click)="remove()">Remove</button>
+        @if (p.quantity; as q){<p class="info">quantity: {{q}}</p>}
         }
     </div>
 </div>

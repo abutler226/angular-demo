@@ -32,4 +32,8 @@ export class InventoryService {
         //Linq: ({...currentList, [index]: [value]-1})
         this.allInventory.update(i=>({...i, [productId]: i[productId]-1}));
     }
+
+    decrementAll(productId: number){
+        this.allInventory.update(i=>({...i, [productId]: 5}));
+    }
 }

@@ -20,7 +20,6 @@ export class ProductDetailsComponent {
   favorite = signal(3);
 
   availableInventory = computed(() => this.inventoryService.get(this.product().id));
-  isButtonDisabled = signal(false);
   message = "";
 
   inventoryMap = {
