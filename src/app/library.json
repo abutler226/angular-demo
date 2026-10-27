@@ -1,0 +1,128 @@
+[
+  {
+    "id": 17,
+    "title": "The Moon Is A Harsh Mistress",
+    "authors": [
+      {
+        "name": "Robert A. Heinlein"
+      }
+    ],
+    "summaries": [
+      "It is a tale of revolution, of the rebellion of a former penal colony on the Moon against its masters on the Earth. It is a tale of a culture whose family structures are based on the presence of two men for every woman, leading to novel forms of marriage and family. It is the story of the disparate people, a computer technician, a vigorous young female agitator, and an elderly academic who become the movement's leaders, and of Mike, the supercomputer whose sentience is known only to the revolt's inner circle, who for reasons of his own is committed to the revolution's ultimate success."
+    ],
+    "copyright": true
+  },
+  {
+    "id": 6,
+    "title": "A Memory Called Empire",
+    "authors": [
+      {
+        "name": "Arkady Martine"
+      }
+    ],
+    "summaries": [],
+    "copyright": true
+  },
+  {
+    "id": 2,
+    "title": "Teaching to Transgress",
+    "authors": [
+      {
+        "name": "bell hooks"
+      }
+    ],
+    "summaries": [],
+    "copyright": true
+  },
+  {
+    "id": 3,
+    "title": "Ettiquette & Espionage",
+    "authors": [
+      {
+        "name": "Gail Carriger"
+      }
+    ],
+    "summaries": [],
+    "copyright": true
+  },
+  {
+    "id": 16,
+    "title": "The Girl Who Kicked The Hornet's Nest",
+    "authors": [
+      {
+        "name": "Stieg Larsson"
+      },
+      {
+        "name": "Reg Keeland"
+      }
+    ],
+    "summaries": [],
+    "copyright": true
+  },
+  {
+    "id": 13,
+    "title": "Orwell's Roses",
+    "authors": [
+      {
+        "name": "Rebecca Solnit"
+      }
+    ],
+    "summaries": [],
+    "copyright": true
+  },
+  {
+    "id": 7,
+    "title": "Men Explain Things To Me",
+    "authors": [
+      {
+        "name": "Rebecca Solnit"
+      }
+    ],
+    "summaries": [],
+    "copyright": true
+  },
+  {
+    "id": 4,
+    "title": "Reflections of My Nonexistence",
+    "authors": [
+      {
+        "name": "Rebecca Solnit"
+      }
+    ],
+    "summaries": [],
+    "copyright": true
+  },
+  {
+    "id": 9,
+    "title": "Starship Troopers",
+    "authors": [
+      {
+        "name": "Robert A. Heinlein"
+      }
+    ],
+    "summaries": [],
+    "copyright": true
+  },
+  {
+    "id": 15,
+    "title": "Strangers in a Strange Land",
+    "authors": [
+      {
+        "name": "Robert A. Heinlein"
+      }
+    ],
+    "summaries": [],
+    "copyright": true
+  },
+  {
+    "id": 5,
+    "title": "One Day, Everyone Will Have Always Been Against This",
+    "authors": [
+      {
+        "name": "Omar El Akkad"
+      }
+    ],
+    "summaries": [],
+    "copyright": true
+  }
+]

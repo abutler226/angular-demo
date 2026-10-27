@@ -38,12 +38,19 @@ export class LibraryComponent {
     //console.log('newBooks', newBooks.length);
     //return newBooks;//this.books().filter(b=>b.authors.filter(a=>a.name===this.selectedAuthor()));
 
-    var newBooks: IBook[] = [];
-    this.books().forEach(b => {
-      if(b.authors.find(a=>a.name===this.selectedAuthor() || this.selectedAuthor()===""))
-        newBooks.push(b);
-    });
+    // var newBooks: IBook[] = [];
+    // this.books().forEach(b => {
+    //   if (b.authors.find(a => a.name === this.selectedAuthor() || this.selectedAuthor() === ""))
+    //     newBooks.push(b);
+    // });
 
+    //this is more like it
+    var newBooks: IBook[] = this.books().reduce((sub, book) => {
+      if(book.authors.find(b=>b.name===this.selectedAuthor()))
+          sub.push(book);
+
+      return sub;
+    }, {} as IBook[]);
 
     return newBooks;
   }
