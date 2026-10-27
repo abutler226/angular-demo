@@ -14,10 +14,15 @@ import { SliderComponent } from '../slider/slider.component';
 export class ProductDetailsComponent {
   constructor(private cartService: CartService) { }
 
-  product = input.required<IProduct>();
+  product = input.required<IProduct, IProduct>({ transform: this.normalizeDiscount });
   mode = input<'shop' | 'cart'>('shop');
 
   favorite = signal(3);
+
+  //  basic transform:
+  //width = input({ transform: (w: number) => w + 'px' });
+  //  strongly typed transform with in/out types and default val: input<[output type], [input type]>(['default'], {transform...})
+  //width = input<string,number>('5px', { transform: (w: number) => w + 'px' });
 
   availableInventory = signal(5);
   isButtonDisabled = signal(false);
@@ -30,6 +35,14 @@ export class ProductDetailsComponent {
     '=3': 'Few left!',
     '=4': 'Few left!',
     other: 'Get yours today!',
+  }
+
+  //sanitize discount value with transform function to prevent discount > 100%
+  normalizeDiscount(product: IProduct): IProduct {
+    if (product.discount < 1)
+      return product;
+
+    return { ...product, discount: product.discount / 100 };
   }
 
   sliderChange(newValue: number) {
