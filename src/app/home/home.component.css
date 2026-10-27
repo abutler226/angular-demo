@@ -2,8 +2,8 @@ div {
     display: flex;
 }
 
-a {
-    color: #d25ca1;
+h3 {
+    font-size: 12pt;
 }
 
 fieldset{
@@ -66,3 +66,4 @@ fieldset{
     margin-top: -15px;
     color: #d25ca1;
 }
+
