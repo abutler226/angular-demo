@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { IProduct } from '../product-details/product.model';
+import { InventoryService } from './inventory.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +8,15 @@ import { IProduct } from '../product-details/product.model';
 export class CartService {
   cart = signal<IProduct[]>([]);
 
-  constructor() { }
+  constructor(private inventoryService: InventoryService) { }
 
   addToCart(product: IProduct) {
+    this.inventoryService.decrement(product.id);
     this.cart.update(cart => [...cart, product]);
   }
 
   removeFromCart(product: IProduct) {
+    this.inventoryService.increment(product.id);
     this.cart.update(cart => cart.filter(p => p.id != product.id));
   }
 }

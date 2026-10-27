@@ -12,7 +12,7 @@
             </p>
             @if (p.productNotes; as notes){<p class="info">{{notes}}</p>}
             <p>Inventory: {{availableInventory()}}
-                <span class="pill" [class.yellow]="availableInventory()<5&&availableInventory()>2"
+                <span class="pill" [class.yellow]="availableInventory()<5 && availableInventory()>2"
                     [class.red]="availableInventory()<5">{{availableInventory()|i18nPlural:inventoryMap}}</span>
             </p>
             <div>
