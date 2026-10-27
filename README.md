@@ -1,17 +1,21 @@
 # AngularDemo
 
+Hi!
+I'm a Senior Full Stack Software Engineer with 20+ years of experience designing, developing, and modernizing enterprise applications, including proven expertise in enterprise architecture, IIS infrastructure, API development, database administration/normalization, systems testing, and application security. I am a technical SME with experience leading large-scale server builds, supporting legacy apps through modernization efforts, and coordinating cross-functional teams.
+
+Currently back in the job market after 13 years at Wells Fargo, and I realize that all my work is hidden behind enterprise GitHub repos.  I got comfortable in my position and I haven't done a great job of marketing myself. It's time that changed.
+
+While I used AngularJS years ago, my skills needed to stay modern.
+
+This is a sandbox site I'm using to strengthen my skills in Angular (currently 22.2.2), in order to stay current.
+
+I am following the Angular Foundations path in Pluralsight, and adding things in along the way from Angular documentation and other resources I find along the way.
+
+
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8, but was based on a demo for Angular 19.  This required some small changes:
 
 - This was created as a standalone:false app by default.  The tutorial, and best practice from 17+ is to use standalone components/imports, so I used the following terminal cmd:
-
-```bash
-ng generate @angular/core:standalon
-```
-
-This was executed 3 times: 
-1. Convert all components, directives and pipes to standalone
-2. Remove unnecessary NgModule classes
-3. Bootstrap the application using standalone APIs
 
 ## Development server
 
@@ -20,8 +24,6 @@ To start a local development server, run:
 ```bash
 ng serve
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
 ## Code scaffolding
 
