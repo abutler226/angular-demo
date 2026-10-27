@@ -1,16 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, signal, Signal } from '@angular/core';
 import { IProduct } from '../product-details/product.model';
-import { CartItemComponent } from '../cart-item/cart-item.component';
-import allProducts from '../products.json'
+import { CartService } from '../services/cart.service';
+import { ProductDetailsComponent } from '../product-details/product-details.component';
 
 @Component({
   selector: 'ab-cart',
-  imports: [CartItemComponent],
+  imports: [ProductDetailsComponent],
   styleUrl: './cart.component.css',
   templateUrl: './cart.component.html'
 })
 export class CartComponent {
-  //sample data: state management to come later
-  cartItems: IProduct[] = [allProducts[3], allProducts[7], allProducts[5], allProducts[13]];
-  //product: IProduct;
+  cartItems: Signal<IProduct[]>;
+  isButtonDisabled = signal(false);//should be linkedSignal to update when all items removed;
+
+  constructor(private cartService: CartService) {
+    this.cartItems = this.cartService.cart;
+
+    this.isButtonDisabled.update((b) => this.cartItems().length==0);
+  }
+  
+  removeFromCart(product: IProduct){
+    this.cartService.removeFromCart(product);
+  }
 }

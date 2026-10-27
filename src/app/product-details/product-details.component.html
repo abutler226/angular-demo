@@ -1,27 +1,39 @@
+@let p= product();
+@let discountedPrice = p.price * (1-p.discount) | currency;
+
 <div class="product">
-    <img [src]="getImageURL(product())" [alt]="product().name" [title]="product().name" />
+    <img [src]="getImageURL(p)" [alt]="p.name" [title]="p.name" />
     <div class="details">
         <div>
-            <h2>{{product().name}} {{message}}</h2>
-            <p>{{product().description}}</p>
-            <p>Part Type: {{product().category}} </p>
-            <p>Inventory: {{availableInventory()}} </p>
+            <h2>{{p.name}} {{message}}</h2>
+            <p>{{p.description}}</p>
+            <p>Part Type:
+                {{p.category | categoryToPartType}}
+            </p>
+            @if (p.productNotes; as notes){<p class="info">{{notes}}</p>}
+            <p>Inventory: {{availableInventory()}}
+                <span class="pill" [class.yellow]="availableInventory()<5&&availableInventory()>2"
+                    [class.red]="availableInventory()<5">{{availableInventory()|i18nPlural:inventoryMap}}</span>
+            </p>
+            <div>
+                Favorite rating: {{favorite()}}
+                <ab-slider [(sliderValue)]="favorite" (sliderValueChange)="sliderChange($event)" />
+            </div>
         </div>
     </div>
     <div class="price">
-        <p [ngClass]="getPriceClasses()">{{product().price|currency}}</p>
-        <p [class.strikethrough]="product().discount>0" style="display: none;">{{product().price|currency}}</p>
- 
-        @if (product().discount>0){
-        <p class="discount">{{product().price * (1-product().discount) | currency}}</p>
+        <p [ngClass]="getPriceClasses()">{{p.price|currency}}</p>
+        <p [class.strikethrough]="p.discount>0" style="display: none;">{{p.price|currency}}</p>
+
+        @if (p.discount>0){
+        <p class="discount">{{discountedPrice}}</p>
         }
 
-        <button [disabled]="isButtonDisabled()" class="cta" (click)="addToCart(product(), $event)">Buy</button>
+        @if(mode()==='shop'){
+        <button [disabled]="isButtonDisabled()" class="cta" (click)="add()">Buy Me</button>
+        }
+        @else{
+        <button class="remove" (click)="remove()">Remove Me</button>
+        }
     </div>
-</div>
-
-
-
-<div class="info">
-    <b>To create:</b> ng generate component product-details --type=component
 </div>

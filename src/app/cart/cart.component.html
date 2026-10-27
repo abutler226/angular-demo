@@ -1,11 +1,22 @@
+@let hasCartItems = cartItems().length > 0;
 <div class="info-banner">PluralSight: <a href="https://app.pluralsight.com/ilx/video-courses/angular-foundations/"
         target="_blank">Angular Foundations</a></div>
 
 <h1 class="header">Your Cart</h1>
+
+@if(hasCartItems){
+<button class="float-right hide" (click)="checkout.scrollIntoView()">Proceed to Checkout</button>
+}
 <ul>
-    @for(product of cartItems; track product.id){
+    @for(product of cartItems(); track product.id){
     <li>
-        <ab-cart-item [product]="product" />
+        <ab-product-details [product]="product" mode="cart" (removeFromCart)="removeFromCart($event)" />
     </li>
-    }
+    }@empty {<h2>No items in cart</h2>}
 </ul>
+
+<span #checkout>
+    @if(hasCartItems){
+    <button [disabled]="isButtonDisabled()" class="cta">Checkout</button>
+    }
+</span>

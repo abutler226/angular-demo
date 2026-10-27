@@ -7,10 +7,13 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CartComponent } from './cart/cart.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SiteHeaderComponent } from './site-header/site-header.component';
-import { SignalsComponent } from './signals/signals.component';
+import { SandboxComponent } from './signals/sandbox.component';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
 import { LibraryComponent } from './library/library.component';
+import { CategoryToPartTypePipe } from './category-to-part-type-pipe';
+import { FilterByCategoryPipePipe } from './filter-by-category-pipe-pipe';
+import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
   imports: [
@@ -21,8 +24,13 @@ import { LibraryComponent } from './library/library.component';
     CartComponent,
     SiteHeaderComponent,
     ProductsComponent,
-    HomeComponent, LibraryComponent
+    HomeComponent,
+    LibraryComponent,
+    SandboxComponent, 
+    SliderComponent,
+    CategoryToPartTypePipe,
+    FilterByCategoryPipePipe,
   ],
-  declarations: [PageNotFoundComponent, SignalsComponent],
+  declarations: [PageNotFoundComponent],
 })
 export class AppModule {}
