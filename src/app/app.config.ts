@@ -7,8 +7,8 @@ import { AppData } from './app-data';
 import { HomeComponent } from './home/home.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CartComponent } from './cart/cart.component';
-import { SignalsComponent } from './signals/signals.component';
 import { ProductsComponent } from './products/products.component';
+import { SandboxComponent } from './sandbox/sandbox.component';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,7 +18,7 @@ export const appConfig: ApplicationConfig = {
   { path: '', component: HomeComponent },
   { path: 'catalog', component: CatalogComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'signals', component: SignalsComponent },
+  { path: 'sandbox', component: SandboxComponent },
   { path: 'products', component: ProductsComponent },
 
   //{ path: '**', component: PageNotFoundComponent }
