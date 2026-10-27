@@ -1,0 +1,24 @@
+<fieldset>
+    - API generated list and DDL for selection options <br>
+    - list updates on author selection <br>
+    - utilizes signal, linkedSignal, ngModel & ngValue data binding, and error logging
+</fieldset>
+<h3>Quick Library demo:</h3>
+
+<div class="authors">
+    <label>Authors:</label>
+    <select id="authorSelectList" [(ngModel)]="selectedAuthor">
+        <option value="" selected>--Select an author--</option>
+        @for(author of uniqueAuthors; track author){
+        <option [ngValue]="author">{{author}}</option>
+        }
+    </select>
+</div>
+
+@for(book of booksByAuthor(); track book.id){
+<div class="book">
+    <div class="review-title">{{ book.title }}</div>
+    <div class="review-author">@for(author of book.authors; track author.name){ {{author.name}}<br /> }</div>
+    <div class="review-text">{{ book.summaries?.at(0) }}</div>
+</div>
+}
