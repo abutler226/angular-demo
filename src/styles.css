@@ -107,6 +107,7 @@ button.cta {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #d25ca1;
   color: #ddd;
+  width: 100%;
 }
 
 button.cta:hover {
@@ -122,19 +123,6 @@ button.cta:disabled {
   background-color: #f590c4;
   color: #eee;
   cursor: not-allowed;
-}
-
-div.info-banner{
-    background: #e2e2e2;
-    text-align: center;
-    font-style: italic;
-    margin: -10px;
-    padding: 5px;
-}
-
-div.info-banner a{
-    font-weight: bold;
-    color: #d25ca1;
 }
 
 div.info{
@@ -155,4 +143,49 @@ div.info{
 
 .error {
   color: red;
+}
+
+a.cta {
+  color: #d25ca1;
+}
+
+a.cta:visited {
+  color: #d25ca1;
+}
+
+a.cta:hover {
+  color: #f27cb1;
+}
+
+.cta {
+  color: #d25ca1;
+}
+
+a.cta {
+  color: #d25ca1;
+}
+
+a.cta:visited {
+  color: #d25ca1;
+}
+
+a.cta:hover {
+  color: #f27cb1;
+}
+
+.cta {
+  color: #d25ca1;
+}
+
+
+div.info-banner{
+    background: #e2e2e2;
+    text-align: center;
+    font-style: italic;
+    margin: -10px;
+}
+
+div.info-banner a{
+    font-weight: bold;
+    color: #d25ca1;
 }

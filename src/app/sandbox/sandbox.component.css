@@ -1,0 +1,25 @@
+div {
+    padding: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+h3 {
+    color: #d25ca1;
+    margin: 0;
+    padding: 0;
+}
+
+.examples {
+    border: 1px dotted #d25ca1;
+
+}
+
+button {
+    background-color: #d25ca1;
+    padding: 5px;
+    margin:5px;
+    border-radius: 999px;
+}
