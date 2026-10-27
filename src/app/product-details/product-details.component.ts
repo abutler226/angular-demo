@@ -3,10 +3,11 @@ import { IProduct } from './product.model';
 import { CommonModule } from '@angular/common';
 import { CategoryToPartTypePipe } from '../category-to-part-type-pipe';
 import { CartService } from '../services/cart.service';
+import { SliderComponent } from '../slider/slider.component';
 
 @Component({
   selector: 'ab-product-details',
-  imports: [CommonModule, CategoryToPartTypePipe],
+  imports: [CommonModule, CategoryToPartTypePipe, SliderComponent],
   styleUrl: './product-details.component.css',
   templateUrl: './product-details.component.html',
 })
@@ -15,6 +16,8 @@ export class ProductDetailsComponent {
 
   product = input.required<IProduct>();
   mode = input<'shop' | 'cart'>('shop');
+
+  favorite = signal(3);
 
   availableInventory = signal(5);
   isButtonDisabled = signal(false);
@@ -27,6 +30,10 @@ export class ProductDetailsComponent {
     '=3': 'Few left!',
     '=4': 'Few left!',
     other: 'Get yours today!',
+  }
+
+  sliderChange(newValue: number) {
+    console.log("new slider value: ", newValue);
   }
 
   getImageURL(product: IProduct) {

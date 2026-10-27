@@ -15,6 +15,10 @@
                 <span class="pill" [class.yellow]="availableInventory()<5&&availableInventory()>2"
                     [class.red]="availableInventory()<5">{{availableInventory()|i18nPlural:inventoryMap}}</span>
             </p>
+            <div>
+                Favorite rating: {{favorite()}}
+                <ab-slider [(sliderValue)]="favorite" (sliderValueChange)="sliderChange($event)" />
+            </div>
         </div>
     </div>
     <div class="price">
@@ -30,6 +34,6 @@
         }
         @else{
         <button class="remove" (click)="remove()">Remove Me</button>
-    }
+        }
     </div>
 </div>

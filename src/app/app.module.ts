@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { LibraryComponent } from './library/library.component';
 import { CategoryToPartTypePipe } from './category-to-part-type-pipe';
 import { FilterByCategoryPipePipe } from './filter-by-category-pipe-pipe';
+import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
   imports: [
@@ -25,8 +26,9 @@ import { FilterByCategoryPipePipe } from './filter-by-category-pipe-pipe';
     ProductsComponent,
     HomeComponent,
     LibraryComponent,
-    SandboxComponent,
-    CategoryToPartTypePipe, 
+    SandboxComponent, 
+    SliderComponent,
+    CategoryToPartTypePipe,
     FilterByCategoryPipePipe,
   ],
   declarations: [PageNotFoundComponent],
